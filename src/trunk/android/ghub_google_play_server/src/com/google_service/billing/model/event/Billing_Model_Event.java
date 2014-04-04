@@ -1,0 +1,14 @@
+package com.google_service.billing.model.event;
+
+import com.gdkompanie.gdos.event.Event;
+
+public class Billing_Model_Event extends Event {
+  static public final String START_COMPLETE = "start_complete";
+  static public final String PURCHASE_COMPLETE = "purchase_complete";
+  static public final String CONSUME_COMPLETE = "consume_complete";
+  static public final String GET_INVENTORY_COMPLETE = "get_inventory_complete";
+
+  public Billing_Model_Event(String event_name) {
+    super(event_name);
+  }
+}
