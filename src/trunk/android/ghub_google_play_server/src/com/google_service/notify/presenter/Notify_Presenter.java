@@ -18,4 +18,8 @@ public class Notify_Presenter extends Presenter {
     model.add_event_listener(Notify_Model_Event.REGISTER_ID_COMPLETE, new Notify_Register_Id_Complete_Handler(this));
     model.start(sender_id);
   }
+  
+  public void remove_notify(int notifiaction_id) {
+    model.remove_notify(notifiaction_id);
+  }
 }

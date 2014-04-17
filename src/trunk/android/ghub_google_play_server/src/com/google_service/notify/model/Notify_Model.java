@@ -1,9 +1,11 @@
 package com.google_service.notify.model;
 
 import java.io.IOException;
+import android.app.NotificationManager;
 import java.util.Hashtable;
 
 import android.app.Activity;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
@@ -54,6 +56,11 @@ public class Notify_Model extends Model {
       Logger.alert(activity, error_message);
       occur_start_complete_fail_event(error_message);
     }
+  }
+  
+  public void remove_notify(int notification_id) {
+    NotificationManager mNotificationManager = (NotificationManager) activity.getSystemService(Context.NOTIFICATION_SERVICE);
+    mNotificationManager.cancel(notification_id);
   }
 
   private void register_id_in_background() {

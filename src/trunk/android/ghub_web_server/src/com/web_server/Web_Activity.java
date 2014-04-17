@@ -1,5 +1,8 @@
 package com.web_server;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.web_server.model.Javascript_Bridge;
 import com.web_service_server.R;
 
@@ -29,13 +32,13 @@ public class Web_Activity extends Activity {
 		myWebView.setWebViewClient(new WebViewClient());
 		WebSettings webSettings = myWebView.getSettings();
 		webSettings.setUseWideViewPort(true);
-    webSettings.setLoadWithOverviewMode(true);
-    webSettings.setAppCacheEnabled(false);
+		webSettings.setLoadWithOverviewMode(true);
+		webSettings.setAppCacheEnabled(false);
 		webSettings.setJavaScriptEnabled(true);
 		
 		Javascript_Bridge bridge = new Javascript_Bridge(this);
 		myWebView.addJavascriptInterface(bridge, "Javascript_Bridge");
-		
+
 		myWebView.loadUrl(get_url());
 	}
 	
