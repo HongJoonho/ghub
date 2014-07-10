@@ -132,6 +132,7 @@ public class Auth_Model extends Model {
   public void logout() {
     if (!session.isClosed()) {
       session.closeAndClearTokenInformation();
+      session_is_open = false;
     }
   }
 
