@@ -2,8 +2,8 @@ package com.google_service.billing.presenter.event;
 
 import java.util.Dictionary;
 
-import com.gdkompanie.gdos.event.Event;
-import com.gdkompanie.gdos.event.Event_Handler;
+import com.github.aadt.kernel.event.Event;
+import com.github.aadt.kernel.event.Event_Handler;
 import com.google_service.billing.presenter.Billing_Presenter;
 import com.google_service.billing.model.Billing_Model;
 import com.google_service.billing.model.event.Billing_Model_Event;

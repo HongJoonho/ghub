@@ -1,8 +1,8 @@
-package com.gdkompanie.gdos.actor;
+package com.github.aadt.kernel.actor;
 
-import com.gdkompanie.gdos.event.Event;
-import com.gdkompanie.gdos.event.Event_Dispatcher;
-import com.gdkompanie.gdos.event.Event_Handler;
+import com.github.aadt.kernel.event.Event;
+import com.github.aadt.kernel.event.Event_Dispatcher;
+import com.github.aadt.kernel.event.Event_Handler;
 
 public class Actor {
 	private Event_Dispatcher dispatcher;

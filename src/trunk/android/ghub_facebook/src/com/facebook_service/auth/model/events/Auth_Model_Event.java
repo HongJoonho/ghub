@@ -1,6 +1,6 @@
 package com.facebook_service.auth.model.events;
 
-import com.gdkompanie.gdos.event.Event;
+import com.github.aadt.kernel.event.Event;
 
 public class Auth_Model_Event extends Event {
   public static final String SESSION_IS_OPENED = "session_is_opened";

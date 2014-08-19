@@ -1,7 +1,7 @@
 package com.google_service.game.model;
 
-import com.gdkompanie.gdos.mvp.Model;
-import com.gdkompanie.gdos.util.Logger;
+import com.github.aadt.kernel.mvp.Model;
+import com.github.aadt.kernel.util.Logger;
 
 import android.app.Activity;
 import android.content.Intent;

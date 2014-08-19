@@ -1,4 +1,4 @@
-package com.gdkompanie.gdos.event;
+package com.github.aadt.kernel.event;
 
 import java.util.Dictionary;
 import java.util.Hashtable;

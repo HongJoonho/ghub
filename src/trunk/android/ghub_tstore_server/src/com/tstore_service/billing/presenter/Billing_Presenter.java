@@ -1,7 +1,7 @@
 package com.tstore_service.billing.presenter;
 
-import com.gdkompanie.gdos.mvp.Presenter;
-import com.gdkompanie.gdos.util.Logger;
+import com.github.aadt.kernel.mvp.Presenter;
+import com.github.aadt.kernel.util.Logger;
 import com.tstore_service.billing.model.Billing_Model;
 import com.tstore_service.billing.model.dto.Consume_Complete_DTO;
 import com.tstore_service.billing.model.dto.Purchase_Complete_DTO;

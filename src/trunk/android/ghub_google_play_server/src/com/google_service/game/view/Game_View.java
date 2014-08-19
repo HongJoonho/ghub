@@ -3,8 +3,8 @@ package com.google_service.game.view;
 import android.app.Activity;
 import android.content.Intent;
 
-import com.gdkompanie.gdos.mvp.View;
-import com.gdkompanie.gdos.util.Logger;
+import com.github.aadt.kernel.mvp.View;
+import com.github.aadt.kernel.util.Logger;
 
 public class Game_View extends View {
   private Activity activity;

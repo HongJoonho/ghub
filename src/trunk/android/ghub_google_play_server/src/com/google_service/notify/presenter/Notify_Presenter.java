@@ -1,6 +1,6 @@
 package com.google_service.notify.presenter;
 
-import com.gdkompanie.gdos.mvp.Presenter;
+import com.github.aadt.kernel.mvp.Presenter;
 import com.google_service.notify.model.Notify_Model;
 import com.google_service.notify.model.event.Notify_Model_Event;
 import com.google_service.notify.presenter.event.Notify_Register_Id_Complete_Handler;

@@ -4,7 +4,7 @@ import java.util.Dictionary;
 import java.util.Hashtable;
 import android.content.Intent;
 
-import com.gdkompanie.gdos.mvp.Presenter;
+import com.github.aadt.kernel.mvp.Presenter;
 import com.google_service.billing.model.Billing_Model;
 import com.google_service.billing.model.event.Billing_Model_Event;
 import com.google_service.billing.presenter.event.Billing_Activity_Result_Handler;

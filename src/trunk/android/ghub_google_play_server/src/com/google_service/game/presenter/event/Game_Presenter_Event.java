@@ -1,6 +1,6 @@
 package com.google_service.game.presenter.event;
 
-import com.gdkompanie.gdos.event.Event;
+import com.github.aadt.kernel.event.Event;
 
 public class Game_Presenter_Event extends Event {
   public static final String START = "start";

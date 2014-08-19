@@ -1,6 +1,6 @@
 package com.facebook_service.auth.presenter.events;
 
-import com.gdkompanie.gdos.event.Event;
+import com.github.aadt.kernel.event.Event;
 
 public class Auth_Presenter_Event extends Event {
   public static final String LOGIN = "login";

@@ -1,6 +1,6 @@
 package com.google_service.billing.model.event;
 
-import com.gdkompanie.gdos.event.Event;
+import com.github.aadt.kernel.event.Event;
 
 public class Billing_Model_Event extends Event {
   static public final String START_COMPLETE = "start_complete";

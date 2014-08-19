@@ -6,8 +6,8 @@ import java.util.Hashtable;
 import android.content.res.Resources;
 
 import com.tstore_service.R;
-import com.gdkompanie.gdos.event.Event;
-import com.gdkompanie.gdos.event.Event_Handler;
+import com.github.aadt.kernel.event.Event;
+import com.github.aadt.kernel.event.Event_Handler;
 import com.skplanet.dev.guide.pdu.Response.Product;
 import com.tstore_service.billing.model.Billing_Model;
 import com.tstore_service.billing.model.dto.Purchase_Complete_DTO;

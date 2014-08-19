@@ -1,4 +1,4 @@
-package com.gdkompanie.gdos.util;
+package com.github.aadt.kernel.util;
 
 import android.app.AlertDialog;
 import android.util.Log;

@@ -1,7 +1,7 @@
 package com.tstore_service.billing.presenter.event;
 
-import com.gdkompanie.gdos.event.Event;
-import com.gdkompanie.gdos.event.Event_Handler;
+import com.github.aadt.kernel.event.Event;
+import com.github.aadt.kernel.event.Event_Handler;
 import com.tstore_service.billing.presenter.Billing_Presenter;
 
 public class Billing_Start_Complete_Handler extends Event_Handler {

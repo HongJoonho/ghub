@@ -13,9 +13,9 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.gdkompanie.gdos.event.Event;
-import com.gdkompanie.gdos.mvp.Model;
-import com.gdkompanie.gdos.util.Logger;
+import com.github.aadt.kernel.event.Event;
+import com.github.aadt.kernel.mvp.Model;
+import com.github.aadt.kernel.util.Logger;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.gcm.GoogleCloudMessaging;

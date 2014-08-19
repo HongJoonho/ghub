@@ -1,15 +1,13 @@
-package com.gdkompanie.apdpl.activity;
+package com.github.aadt.plugins.activity;
 import org.json.simple.JSONValue;
 import org.json.simple.JSONObject;
-import org.json.JSONException;
 
-import com.gdkompanie.apdpl.activity.events.Direct_Event;
-import com.gdkompanie.gdos.event.Event;
-import com.gdkompanie.gdos.event.Event_Dispatcher;
-import com.gdkompanie.gdos.event.Event_Handler;
 import android.app.NativeActivity;
 import android.util.Log;
-import com.gdkompanie.gdos.event.Event;
+import com.github.aadt.kernel.event.Event;
+import com.github.aadt.kernel.event.Event_Dispatcher;
+import com.github.aadt.kernel.event.Event_Handler;
+import com.github.aadt.plugins.activity.events.Direct_Event;
 import com.unity3d.player.UnityPlayer;
 
 public class Android_Activity_Accepter extends NativeActivity {
@@ -69,4 +67,3 @@ public class Android_Activity_Accepter extends NativeActivity {
     UnityPlayer.UnitySendMessage(connecter_path, "recv", event_data);
   }
 }
-

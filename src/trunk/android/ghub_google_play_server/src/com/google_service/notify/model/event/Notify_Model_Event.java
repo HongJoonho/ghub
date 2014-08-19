@@ -1,6 +1,6 @@
 package com.google_service.notify.model.event;
 
-import com.gdkompanie.gdos.event.Event;
+import com.github.aadt.kernel.event.Event;
 
 public class Notify_Model_Event extends Event {
   public static String START_COMPLETE = "start_complete";

@@ -1,6 +1,6 @@
 package com.google_service.game.model.event;
 
-import com.gdkompanie.gdos.event.Event;
+import com.github.aadt.kernel.event.Event;
 
 public class Game_Model_Event extends Event {
   public static final String SIGN_IN_SUCCESSED = "sign_in_successed";

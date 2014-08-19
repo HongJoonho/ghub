@@ -5,7 +5,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.gdkompanie.gdos.util.Logger;
+import com.github.aadt.kernel.util.Logger;
 import com.skplanet.dev.guide.pdu.Response;
 import com.skplanet.dev.guide.pdu.Response.Product;
 import com.unity3d.player.UnityPlayer;

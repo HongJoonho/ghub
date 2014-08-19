@@ -6,7 +6,7 @@ import java.util.Hashtable;
 import android.app.Activity;
 import android.content.Intent;
 
-import com.gdkompanie.gdos.mvp.Presenter;
+import com.github.aadt.kernel.mvp.Presenter;
 import com.google_service.game.presenter.event.Enter_Achivement_Handler;
 import com.google_service.game.presenter.event.Enter_Leaderboard_Handler;
 import com.google_service.game.presenter.event.Game_Presenter_Event;

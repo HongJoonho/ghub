@@ -15,7 +15,7 @@ import com.facebook.Session;
 import com.facebook.SessionState;
 import com.facebook.Settings;
 import com.facebook_service.auth.model.events.Auth_Model_Event;
-import com.gdkompanie.gdos.mvp.Model;
+import com.github.aadt.kernel.mvp.Model;
 
 /**
  * @class Auth_Model

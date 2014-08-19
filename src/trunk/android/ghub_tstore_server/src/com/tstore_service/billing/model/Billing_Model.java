@@ -1,22 +1,12 @@
 package com.tstore_service.billing.model;
 
-import java.util.Dictionary;
+
 import java.util.Hashtable;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.view.View;
-import android.view.KeyEvent.DispatcherState;
-import android.widget.Toast;
 
-import com.gdkompanie.gdos.event.Event;
-import com.gdkompanie.gdos.mvp.Model;
-import com.gdkompanie.gdos.util.Logger;
+import com.github.aadt.kernel.mvp.Model;
+import com.github.aadt.kernel.util.Logger;
 import com.skplanet.dev.guide.helper.ConverterFactory;
 import com.skplanet.dev.guide.pdu.Response;
 import com.skplanet.dodo.IapPlugin;
@@ -27,7 +17,6 @@ import com.tstore_service.billing.model.dto.Consume_Complete_DTO;
 import com.tstore_service.billing.model.dto.Purchase_Complete_DTO;
 import com.tstore_service.billing.model.dto.Get_Purchase_Products_Complete_DTO;
 import com.tstore_service.billing.model.event.Billing_Model_Event;
-import com.unity3d.player.UnityPlayer;
 
 public class Billing_Model extends Model {
   public static String PLUGIN_MODE_DEVELOPEMNT = "development";

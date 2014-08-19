@@ -5,7 +5,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.gdkompanie.gdos.util.Logger;
+import com.github.aadt.kernel.util.Logger;
 
 /**
  * Purchase 구글서버에 기기 등록 성공했을 경우에 날라오는 데이터를 래핑해주는 클래스

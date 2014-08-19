@@ -1,6 +1,6 @@
 package com.google_service.notify.presenter.event;
 
-import com.gdkompanie.gdos.event.Event;
+import com.github.aadt.kernel.event.Event;
 
 public class Notify_Presenter_Event extends Event {
   // 메시지 서비스 시작 완료

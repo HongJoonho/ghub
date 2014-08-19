@@ -7,8 +7,8 @@ import android.content.Intent;
 import android.app.Activity;
 import java.util.Hashtable;
 
-import com.gdkompanie.gdos.mvp.Model;
-import com.gdkompanie.gdos.util.Logger;
+import com.github.aadt.kernel.mvp.Model;
+import com.github.aadt.kernel.util.Logger;
 import com.google_service.billing.model.event.*;
 import com.google_service.billing.util.IabHelper;
 import com.google_service.billing.util.IabResult;

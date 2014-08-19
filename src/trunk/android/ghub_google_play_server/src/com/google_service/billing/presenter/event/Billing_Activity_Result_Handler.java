@@ -3,9 +3,9 @@ package com.google_service.billing.presenter.event;
 import java.util.Hashtable;
 import android.content.Intent;
 
-import com.gdkompanie.gdos.event.Event;
-import com.gdkompanie.gdos.event.Event_Handler;
-import com.gdkompanie.gdos.util.Logger;
+import com.github.aadt.kernel.event.Event;
+import com.github.aadt.kernel.event.Event_Handler;
+import com.github.aadt.kernel.util.Logger;
 import com.google_service.billing.view.Billing_View;
 import com.google_service.billing.model.Billing_Model;
 

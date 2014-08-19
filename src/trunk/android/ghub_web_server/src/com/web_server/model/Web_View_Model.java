@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.gdkompanie.gdos.mvp.Model;
+import com.github.aadt.kernel.mvp.Model;
 import com.web_server.Web_Activity;
 
 public class Web_View_Model extends Model {

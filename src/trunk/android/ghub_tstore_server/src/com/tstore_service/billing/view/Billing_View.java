@@ -1,7 +1,7 @@
 package com.tstore_service.billing.view;
 
-import com.gdkompanie.gdos.mvp.View;
-import com.gdkompanie.gdos.util.Logger;
+import com.github.aadt.kernel.mvp.View;
+import com.github.aadt.kernel.util.Logger;
 
 import android.app.Activity;
 import android.content.DialogInterface;

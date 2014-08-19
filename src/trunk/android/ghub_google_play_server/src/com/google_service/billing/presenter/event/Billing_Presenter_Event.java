@@ -1,6 +1,6 @@
 package com.google_service.billing.presenter.event;
 
-import com.gdkompanie.gdos.event.Event;
+import com.github.aadt.kernel.event.Event;
 
 public class Billing_Presenter_Event extends Event {
   public static final String START = "start";

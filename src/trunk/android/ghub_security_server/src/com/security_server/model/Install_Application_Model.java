@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import com.gdkompanie.gdos.util.Logger;
+import com.github.aadt.kernel.util.Logger;
 
 public class Install_Application_Model {
   private Context context;

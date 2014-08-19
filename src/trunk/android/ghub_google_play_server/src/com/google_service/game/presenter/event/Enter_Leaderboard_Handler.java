@@ -3,8 +3,8 @@ package com.google_service.game.presenter.event;
 
 import java.util.Dictionary;
 
-import com.gdkompanie.gdos.event.Event;
-import com.gdkompanie.gdos.event.Event_Handler;
+import com.github.aadt.kernel.event.Event;
+import com.github.aadt.kernel.event.Event_Handler;
 import com.google_service.game.model.Game_Model;
 import com.google_service.game.view.Game_View;
 

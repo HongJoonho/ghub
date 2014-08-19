@@ -7,9 +7,9 @@ import android.os.Bundle;
 import com.facebook_service.auth.model.Auth_Model;
 import com.facebook_service.auth.model.events.Auth_Model_Event;
 import com.facebook_service.auth.presenter.events.Auth_Presenter_Event;
-import com.gdkompanie.gdos.event.Event;
-import com.gdkompanie.gdos.event.Event_Handler;
-import com.gdkompanie.gdos.mvp.Presenter;
+import com.github.aadt.kernel.event.Event;
+import com.github.aadt.kernel.event.Event_Handler;
+import com.github.aadt.kernel.mvp.Presenter;
 
 public class Auth_Presenter extends Presenter {
   private Auth_Model model;

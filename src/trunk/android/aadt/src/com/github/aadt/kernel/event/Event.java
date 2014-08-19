@@ -1,6 +1,6 @@
-package com.gdkompanie.gdos.event;
+package com.github.aadt.kernel.event;
 
-import com.gdkompanie.gdos.actor.Actor;
+import com.github.aadt.kernel.actor.Actor;
 
 public class Event {
         private String name;
