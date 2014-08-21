@@ -29,13 +29,13 @@ public class Android_Activity_Accepter extends NativeActivity {
   public void recv(String event_data) {
     Log.d("FT", "Android_Activity_Accepeter::dispatche_event->" + event_data);
     try {
-      JSONObject data = (JSONObject)JSONValue.parse(event_data);
-      String name = (String)data.get("name");
-      String send_name = (String)data.get("send_name");
-      String send_data = (String)data.get("send_data");
-      if (name.equals("direct_event")) {
-        Event send_event = new Event(send_name);
-        send_event.set_data(send_data);
+      JSONObject json_data = (JSONObject)JSONValue.parse(event_data);
+      String type = (String)json_data.get("type");
+      String name = (String)json_data.get("name");
+      Object data = json_data.get("data");
+      if (type.equals("direct-event")) {
+        Event send_event = new Event(name);
+        send_event.set_data(data);
         dispatcher.dispatch_event(send_event);
       }
     }
