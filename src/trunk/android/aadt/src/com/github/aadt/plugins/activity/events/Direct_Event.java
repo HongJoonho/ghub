@@ -18,9 +18,8 @@ public class Direct_Event extends Event {
 
   public String convert_json() {
     JSONObject result = new JSONObject();
-    result.put("name", get_name()); 
-    result.put("send_name", send_event.get_name());
-    result.put("send_data", send_event.get_data());
+    result.put("name", send_event.get_name());
+    result.put("data", send_event.get_data());
     return result.toJSONString();
   }
 }

@@ -5,62 +5,39 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.view.View.*;
 import android.view.inputmethod.*;
 
 import com.github.aadt.kernel.actor.Actor;
+import com.github.aadt.kernel.event.Event;
+
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView.*;
 
 import com.github.aadt.kernel.util.*;
+import com.github.aadt.plugins.keyboard.events.Keyboard_Event;
+import com.github.aadt.plugins.keyboard.events.Keyboard_Input_Text;
+import com.github.aadt.plugins.keyboard.events.Keyboard_Resize;
+
 import android.view.*;
 
 import com.unity3d.player.UnityPlayer;
 import android.widget.*;
 import com.github.aadt.R;
 import android.text.*;
+import android.text.method.KeyListener;
 
 public class Keyboard extends Actor {
   private Activity activity;
-  private EditText text;
-  private UnityPlayer unity_player;
+  private Dialog dialog;
+  private int layout_height = 0;
 
-  public Keyboard(Activity arg_activity, UnityPlayer unit_player) {
-    this.activity = arg_activity;
-    this.unity_player = unit_player;
-  }
-
-  public void start() {
-    RelativeLayout.LayoutParams localLayoutParams;
-    localLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
-        RelativeLayout.LayoutParams.WRAP_CONTENT);
-    localLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-    text = new EditText(activity);
-    text.setLayoutParams(localLayoutParams);
-    text.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
-    // text.setInputType(InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
-    /*
-     * text.setInputType(InputType.TYPE_NULL); text.setOnFocusChangeListener(new
-     * OnFocusChangeListener() {
-     * 
-     * @Override public void onFocusChange(View arg0, boolean arg1) { Logger.debug("FOCUS CHANGE");
-     * InputMethodManager inputMgr = (InputMethodManager) activity
-     * .getSystemService(Context.INPUT_METHOD_SERVICE);
-     * text.setInputType(InputType.TYPE_CLASS_TEXT); text.requestFocus();
-     * inputMgr.showSoftInput(text, InputMethodManager.SHOW_IMPLICIT); } });
-     */
-    /*
-     * 
-     * view.getViewTreeObserver().addOnGlobalLayoutListener( new
-     * ViewTreeObserver.OnGlobalLayoutListener() {
-     * 
-     * @Override public void onGlobalLayout() { // TODO Auto-generated method stub int h1 = int h1 =
-     * view.getRootView().getHeight(); int h2 = view.getHeight(); Logger.debug("height1 is " + h1);
-     * Logger.debug("height2 is " + h2); } });
-     */
-    // add_linear_layout();
+  public Keyboard(Activity activity) {
+    this.activity = activity;
   }
 
   public void show() {
@@ -72,108 +49,86 @@ public class Keyboard extends Actor {
     activity.runOnUiThread(new Runnable() {
       @Override
       public void run() {
-        // Dialog dialog = new Dialog(activity,
-        // android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
-        Dialog dialog = new Dialog(activity, android.R.style.Theme_Translucent_NoTitleBar);
-        // Dialog dialog = new Dialog(activity);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.getWindow().setBackgroundDrawable(
-            new ColorDrawable(android.graphics.Color.TRANSPARENT));
-        // dialog.setContentView(R.layout.main_layout);
-        dialog.setContentView(R.layout.popup_layout);
-        dialog.setCancelable(true);
+        dialog = new Dialog(activity, android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
+        dialog.setContentView(R.layout.main_layout);
+        dialog.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN);
         dialog.getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL,
             WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL);
         dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
-       
-        /*
-        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
-        lp.copyFrom(dialog.getWindow().getAttributes());
-        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
-        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
-        lp.gravity = Gravity.BOTTOM;
-        dialog.getWindow().setAttributes(lp);
-        */
         dialog.setOnShowListener(new Dialog.OnShowListener() {
           @Override
           public void onShow(DialogInterface dialog) {
             Logger.debug("DIALOG SHOW");
-            text.requestFocus();
-            InputMethodManager inputMgr = (InputMethodManager) activity
-            .getSystemService(Context.INPUT_METHOD_SERVICE);
-            inputMgr.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+            occur_show_event();
           }
         });
         dialog.show();
-        
-        //final EditText edit = (EditText) dialog.findViewById(R.id.popup_edit);
-        //edit.requestFocus();
-       
-        /*
-         * LayoutInflater inf = activity.getLayoutInflater(); View klayout =
-         * inf.inflate(R.layout.main_layout, null); //RelativeLayout klayout =
-         * (RelativeLayout)activity.findViewById(R.id.main_layout);
-         * 
-         * RelativeLayout layout = new RelativeLayout(UnityPlayer.currentActivity
-         * .getApplicationContext()); RelativeLayout.LayoutParams params; params = new
-         * RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
-         * RelativeLayout.LayoutParams.MATCH_PARENT); layout.addView(klayout);
-         * UnityPlayer.currentActivity.addContentView(layout, params);
-         */
-      }
-    });
-  }
 
-  private void add_relative_layout() {
-    activity.runOnUiThread(new Runnable() {
-      @Override
-      public void run() {
-        RelativeLayout layout = new RelativeLayout(UnityPlayer.currentActivity
-            .getApplicationContext());
-        RelativeLayout.LayoutParams params;
-        params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
-            RelativeLayout.LayoutParams.MATCH_PARENT);
-        params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-        // layout.setBackgroundColor(Color.BLUE);
+        final Custom_Edit_Text edit = (Custom_Edit_Text) dialog.findViewById(R.id.customEditText1);
+        edit.setOnEditTextImeBackListener(new Custom_Edit_Text.EditTextImeBackListener() {
+          @Override
+          public void onImeBack(Custom_Edit_Text ctrl, String text) {
+            Logger.debug("IME BACK. " + text);
+            hide();
+          }
+        });
 
-        RelativeLayout localRelativeLayout = new RelativeLayout(UnityPlayer.currentActivity
-            .getApplicationContext());
-        // localRelativeLayout.setGravity(Gravity.BOTTOM);
-        RelativeLayout.LayoutParams localLayoutParams;
-        localLayoutParams = new RelativeLayout.LayoutParams(
-            RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-        localLayoutParams.height = 1000;
-        // localLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-        // localLayoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
-        localRelativeLayout.setLayoutParams(localLayoutParams);
-        // localRelativeLayout.setBackgroundColor(Color.RED);
-        localRelativeLayout.addView(text);
+        final Button send_button = (Button)dialog.findViewById(R.id.button1);
+        send_button.setOnClickListener(new OnClickListener() {
+          @Override
+          public void onClick(View v) {
+            String text = edit.getText().toString();
+            occur_input_text_event(text);
+            edit.setText("");
+          }
+        });
 
-        layout.addView(localRelativeLayout);
-
-        UnityPlayer.currentActivity.addContentView(layout, params);
-      }
-    });
-  }
-
-  private void add_linear_layout() {
-    UnityPlayer.currentActivity.runOnUiThread(new Runnable() {
-      @Override
-      public void run() {
-        LinearLayout localLinearLayout = new LinearLayout(UnityPlayer.currentActivity
-            .getApplicationContext());
-        localLinearLayout.setOrientation(LinearLayout.VERTICAL);
-        localLinearLayout.setGravity(Gravity.BOTTOM);
-        LinearLayout.LayoutParams localLayoutParams;
-        localLayoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-            LinearLayout.LayoutParams.MATCH_PARENT);
-        // localLinearLayout.setBackgroundColor(Color.RED);
-        localLinearLayout.addView(text);
-        UnityPlayer.currentActivity.addContentView(localLinearLayout, localLayoutParams);
+        final RelativeLayout relative_menu = (RelativeLayout) dialog.findViewById(R.id.layout_h);
+        relative_menu.getViewTreeObserver().addOnGlobalLayoutListener(
+            new ViewTreeObserver.OnGlobalLayoutListener() {
+              @Override
+              public void onGlobalLayout() {
+                int height = relative_menu.getHeight();
+                Logger.debug("layout height " + height);
+                if (layout_height != height) {
+                  layout_height = height;
+                  occur_resize_event(height);
+                }
+              }
+            });
+        relative_menu.setOnClickListener(new OnClickListener() {
+          @Override
+          public void onClick(View v) {
+            Logger.debug("layout clicked");
+            hide();
+          }
+        });
       }
     });
   }
 
   public void hide() {
+    dialog.dismiss();
+    occur_hide_event();
+  }
+
+  private void occur_show_event() {
+    Event event = new Keyboard_Event(Keyboard_Event.SHOW);
+    dispatch_event(event);
+  }
+
+  private void occur_resize_event(int layout_height) {
+    Event event = new Keyboard_Resize(layout_height);
+    dispatch_event(event);
+  }
+
+  private void occur_hide_event() {
+    Event event = new Keyboard_Event(Keyboard_Event.HIDE);
+    dispatch_event(event);
+  }
+  
+  private void occur_input_text_event(String text) {
+    Event event = new Keyboard_Input_Text(text);
+    dispatch_event(event);
   }
 }

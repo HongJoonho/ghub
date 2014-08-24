@@ -2,31 +2,56 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main_layout"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:clickable="false" >
+    android:layout_height="wrap_content"
+    android:clickable="false"
+    android:fitsSystemWindows="true" >
 
     <RelativeLayout
         android:id="@+id/relativeLayout1"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/linearLayout1"
         android:layout_alignParentBottom="true"
-        android:clickable="false" >
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="false" >
 
-        <EditText
-            android:id="@+id/edit"
-            android:layout_width="match_parent"
+        <com.github.aadt.plugins.keyboard.Custom_Edit_Text
+            android:id="@+id/customEditText1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_toLeftOf="@+id/button1"
+            android:layout_weight="1.17"
             android:ems="10" />
 
         <Button
             android:id="@+id/button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:text="Button" />
+            android:layout_alignParentTop="true"
+            android:text="전송" />
+
     </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_h"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/relativeLayout1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true" >
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Button" />
+
+    </RelativeLayout>
+
 </RelativeLayout>

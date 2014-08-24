@@ -5,20 +5,20 @@ import java.util.Map;
 
 import com.github.aadt.kernel.event.Event;
 
-public class Keyboard_Input_Text extends Event {
-  public static final String RECV_INPUT_TEXT = "recv_input_text";
+public class Keyboard_Resize extends Event {
+  public static final String RESIZE = "resize";
   
-  public String text = "";
-  
-  public Keyboard_Input_Text(String text) {
-    super(RECV_INPUT_TEXT);
-    this.text = text;
+  public int layout_height;
+
+  public Keyboard_Resize(int layout_height) {
+   super(RESIZE); 
+   this.layout_height = layout_height;
   }
- 
+  
   @Override
   public Object get_data() {
     Map<String, Object> data = new HashMap<String, Object>();
-    data.put("text", text);
+    data.put("layout_height", layout_height);
     return data;
   }
 }
