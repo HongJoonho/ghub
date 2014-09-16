@@ -33,7 +33,7 @@ import android.text.method.KeyListener;
 
 public class Keyboard extends Actor {
   private Activity activity;
-  private Dialog dialog;
+  private Dialog dialog = null;
   private int layout_height = 0;
 
   public Keyboard(Activity activity) {
@@ -108,7 +108,8 @@ public class Keyboard extends Actor {
   }
 
   public void hide() {
-    dialog.dismiss();
+    if (null != dialog)
+      dialog.dismiss();
     occur_hide_event();
   }
 
