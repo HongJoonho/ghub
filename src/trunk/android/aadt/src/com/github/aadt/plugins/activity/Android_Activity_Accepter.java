@@ -4,20 +4,17 @@ import org.json.simple.JSONObject;
 
 import android.app.NativeActivity;
 import android.util.Log;
+
+import com.github.aadt.kernel.actor.Actor;
+import com.github.aadt.kernel.event.Direct_Event;
 import com.github.aadt.kernel.event.Event;
 import com.github.aadt.kernel.event.Event_Dispatcher;
 import com.github.aadt.kernel.event.Event_Handler;
-import com.github.aadt.plugins.activity.events.Direct_Event;
 import com.unity3d.player.UnityPlayer;
 
-public class Android_Activity_Accepter extends NativeActivity {
+public class Android_Activity_Accepter extends Actor {
   private String connecter_path = ""; // connect패킷을 요청하면 Connecter의 위치를 알 수 있다.
-  private Event_Dispatcher dispatcher = new Event_Dispatcher();
 
-  public void add_event_listener(String name, Event_Handler handler) {
-    dispatcher.add_event_listener(name, handler);
-  }
-  
   public void connect(String connecter_path) {
     this.connecter_path = connecter_path;
   }
@@ -33,11 +30,9 @@ public class Android_Activity_Accepter extends NativeActivity {
       String type = (String)json_data.get("type");
       String name = (String)json_data.get("name");
       Object data = json_data.get("data");
-      if (type.equals("direct-event")) {
-        Event send_event = new Event(name);
-        send_event.set_data(data);
-        dispatcher.dispatch_event(send_event);
-      }
+      Event send_event = new Event(name);
+      send_event.set_data(data);
+      dispatch_event(send_event);
     }
     catch (Exception e) {
       Log.d("FT", e.getMessage());
@@ -65,5 +60,13 @@ public class Android_Activity_Accepter extends NativeActivity {
     // 특정 위치의 객체에게 이벤트 전달. Andoird_Activity_Connecter가 이를 받고,
     // 이벤트에 포함된 object_path에게 Signal_Event 형태로 가공하여 전달한다.
     UnityPlayer.UnitySendMessage(connecter_path, "recv", event_data);
+  }
+  
+  public static Android_Activity_Accepter instance = null;
+  
+  public static Android_Activity_Accepter get_instance() {
+    if (null == instance)
+      instance = new Android_Activity_Accepter();
+    return instance;
   }
 }
