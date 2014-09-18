@@ -4,6 +4,9 @@ import android.content.Intent;
 
 import com.github.aadt.kernel.actor.Actor;
 public class Presenter extends Actor {
+  public Presenter(String path) {
+    super(path);
+  }
   /**
    *  Presenter 시작 함수 
    */
