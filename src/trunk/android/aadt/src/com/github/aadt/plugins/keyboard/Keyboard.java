@@ -10,7 +10,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.view.View.*;
 import android.view.inputmethod.*;
 
-import com.github.aadt.kernel.actor.Actor;
+import com.github.aadt.kernel.actor.*;
 import com.github.aadt.kernel.event.Event;
 
 import android.widget.Button;
@@ -31,12 +31,15 @@ import com.github.aadt.R;
 import android.text.*;
 import android.text.method.KeyListener;
 
-public class Keyboard extends Actor {
+public class Keyboard extends Component {
   private Activity activity;
   private Dialog dialog = null;
   private int layout_height = 0;
 
-  public Keyboard(Activity activity) {
+  public Keyboard() {
+  }
+  
+  public void start(Activity activity) {
     this.activity = activity;
   }
 
