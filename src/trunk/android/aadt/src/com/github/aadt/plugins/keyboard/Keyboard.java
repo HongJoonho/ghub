@@ -37,6 +37,9 @@ public class Keyboard extends Component {
   private Dialog dialog = null;
   private int layout_height = 0;
 
+  public Keyboard() {
+  }
+  
   public void start(Activity activity) {
     this.activity = activity;
   }

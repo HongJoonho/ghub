@@ -1,9 +1,6 @@
 package com.github.aadt.kernel.mvp;
 
-import com.github.aadt.kernel.actor.Actor;
+import com.github.aadt.kernel.actor.Component;
 
-public class View extends Actor {
-  public View(String path) {
-    super(path);
-  }
+public class View extends Component {
 }

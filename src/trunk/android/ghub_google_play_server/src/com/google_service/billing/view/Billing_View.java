@@ -11,8 +11,7 @@ import android.content.res.Resources;
 public class Billing_View extends View {
   private Activity activity;
 
-  public Billing_View(String path, Activity activity) {
-    super(path);
+  public Billing_View(Activity activity) {
     this.activity = activity;
   }
 

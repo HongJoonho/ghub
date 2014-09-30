@@ -9,8 +9,7 @@ import com.github.aadt.kernel.util.Logger;
 public class Notify_View extends View {
   private Activity activity;
   
-  public Notify_View(String path, Activity activity) {
-    super(path);
+  public Notify_View(Activity activity) {
     this.activity = activity;
   }
   

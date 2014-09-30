@@ -2,11 +2,9 @@ package com.github.aadt.kernel.mvp;
 
 import android.content.Intent;
 
-import com.github.aadt.kernel.actor.Actor;
-public class Presenter extends Actor {
-  public Presenter(String path) {
-    super(path);
-  }
+import com.github.aadt.kernel.actor.Component;
+
+public class Presenter extends Component {
   /**
    *  Presenter 시작 함수 
    */

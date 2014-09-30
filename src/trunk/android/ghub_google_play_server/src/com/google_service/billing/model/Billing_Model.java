@@ -22,8 +22,7 @@ public class Billing_Model extends Model {
   private Activity activity;
   private IabHelper mHelper;
 
-  public Billing_Model(String path, Activity ctx) {
-    super(path);
+  public Billing_Model(Activity ctx) {
     this.activity = ctx;
   }
 

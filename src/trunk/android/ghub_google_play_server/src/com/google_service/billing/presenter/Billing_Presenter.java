@@ -21,8 +21,7 @@ public class Billing_Presenter extends Presenter {
   private Billing_Model model;
   private Billing_View view;
 
-  public Billing_Presenter(String path, Billing_View view, Billing_Model model) {
-    super(path);
+  public Billing_Presenter(Billing_View view, Billing_Model model) {
     this.view = view;
     this.model = model;
     register_events();

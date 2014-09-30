@@ -50,8 +50,7 @@ public class Game_Model extends Model implements GameHelper.GameHelperListener {
     private Activity activity;
 
     /** Constructs a BaseGameActivity with default client (GamesClient). */
-    public Game_Model(String path, Activity activity) {
-        super(path);
+    public Game_Model(Activity activity) {
         this.activity = activity;
         mHelper = new GameHelper(activity);
         if (mDebugLog) {
