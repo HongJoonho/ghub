@@ -9,8 +9,8 @@ import com.github.aadt.kernel.util.Logger;
 public class Game_View extends View {
   private Activity activity;
   
-  public Game_View(Activity activity) {
-    super();
+  public Game_View(String path, Activity activity) {
+    super(path);
     this.activity = activity;
   }
   

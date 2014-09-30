@@ -6,16 +6,14 @@ import java.util.Hashtable;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract.CommonDataKinds.Event;
 import android.util.Log;
-import android.widget.SeekBar;
 
 import com.facebook.LoggingBehavior;
 import com.facebook.Session;
 import com.facebook.SessionState;
 import com.facebook.Settings;
 import com.facebook_service.auth.model.events.Auth_Model_Event;
-import com.github.aadt.kernel.mvp.Model;
+import com.github.aadt.kernel.actor.*;
 
 /**
  * @class Auth_Model
@@ -23,7 +21,7 @@ import com.github.aadt.kernel.mvp.Model;
  * @brief  其捞胶合 技记阑 包府窍绰 按眉
  * @author Lee Hyeon-gi
  */
-public class Auth_Model extends Model {
+public class Auth_Model extends Component {
   private Activity activity;
   private Bundle saved_instance_state;
   private Session.StatusCallback status_callback = new SessionStatusCallback();
@@ -38,7 +36,7 @@ public class Auth_Model extends Model {
     }
   }
 
-  public Auth_Model(Activity activity, Bundle saved_instance_state) {
+  public void start(Activity activity, Bundle saved_instance_state) {
     this.activity = activity;
     this.saved_instance_state = saved_instance_state;
     Settings.addLoggingBehavior(LoggingBehavior.INCLUDE_ACCESS_TOKENS);

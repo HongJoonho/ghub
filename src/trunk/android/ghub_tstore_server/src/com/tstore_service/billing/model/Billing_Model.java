@@ -30,8 +30,8 @@ public class Billing_Model extends Model {
   private CommandRequestUtil mCommandRequestUtil = new CommandRequestUtil();
   private PaymentRequestUtil mPaymentRequestUtil = new PaymentRequestUtil();
 
-  public Billing_Model(Activity activity, String plugin_mode) {
-    super();
+  public Billing_Model(String path, Activity activity, String plugin_mode) {
+    super(path);
     this.activity = activity;
     this.plugin_mode = plugin_mode;
     Logger.debug("Billing_Model::getPlugin");

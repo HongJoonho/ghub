@@ -33,7 +33,12 @@ public class Android_Accepter extends Component {
      Proxy_Event proxy_event = (Proxy_Event)Event.deserialzie(event_data); 
      Logger.debug(Event.serialize(proxy_event));
      Logger.debug("recv completed");
-     dispatch_event(proxy_event);
+     
+     Event remote_event = Proxy_Event.deserialize_by_parameter(
+         proxy_event.get_target_type(),
+         proxy_event.get_target_name(),
+         proxy_event.get_target_data());
+     dispatch_event(remote_event);
     }
     catch (Exception e) {
       Log.d("FT", e.getMessage());

@@ -34,7 +34,8 @@ public class Notify_Model extends Model {
   private String register_id;
   private Context context;
   
-  public Notify_Model(Activity activity) {
+  public Notify_Model(String path, Activity activity) {
+    super(path);
     this.activity = activity;
   }
 

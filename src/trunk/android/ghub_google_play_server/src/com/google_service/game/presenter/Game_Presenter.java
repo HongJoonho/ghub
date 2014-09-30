@@ -26,7 +26,8 @@ public class Game_Presenter extends Presenter {
   private Game_View view;
   private Game_Model model;
   
-  public Game_Presenter(Game_View view, Game_Model model) {
+  public Game_Presenter(String path, Game_View view, Game_Model model) {
+    super(path);
     this.view = view;
     this.model = model;
     register_events();

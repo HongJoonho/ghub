@@ -9,7 +9,8 @@ import com.google_service.notify.presenter.event.Notify_Start_Complete_Handler;
 public class Notify_Presenter extends Presenter {
   private Notify_Model model;
   
-  public Notify_Presenter(Notify_Model model) {
+  public Notify_Presenter(String path, Notify_Model model) {
+    super(path);
     this.model = model;
   }
   
