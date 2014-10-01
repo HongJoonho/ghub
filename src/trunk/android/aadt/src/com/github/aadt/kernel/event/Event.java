@@ -44,7 +44,7 @@ public class Event {
 
   public static String serialize(Event event) {
     JSONObject result = new JSONObject();
-    result.put("type", event.getClass().getName());
+    result.put("type", event.getClass().getSimpleName());
     result.put("name", event.get_name());
     result.put("data", event.get_data()); 
     return result.toJSONString();

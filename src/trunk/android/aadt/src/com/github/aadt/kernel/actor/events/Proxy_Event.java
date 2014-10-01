@@ -23,7 +23,7 @@ public class Proxy_Event extends Event {
   public void set_event(Event send_event) {
     this.send_event = send_event;
     HashMap<String, Object> data = new HashMap<String, Object>();
-    data.put("target_type", send_event.getClass().getName());
+    data.put("target_type", send_event.getClass().getSimpleName());
     data.put("target_name", send_event.get_name());
     data.put("target_data", send_event.get_data());
     set_data(data);
